@@ -1,6 +1,6 @@
 # Welcome to Mehraj's Notes
 
-<img src="https://github.com/codermehraj/codermehraj.github.io/blob/master/PictureHosting/IMG_6951_edited.jpg" alt="Girl in a jacket" style="width:250px;height:300px;">
+![My Photo](https://codermehraj.github.io/PictureHosting/IMG_6951_edited%20(2).jpg)<br>
 
 Here you can see my notes on differnt topics and hope you can be benifited from that.
 

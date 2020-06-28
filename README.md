@@ -1,5 +1,7 @@
 # Welcome to Mehraj's Notes
 
+<img src="https://github.com/codermehraj/codermehraj.github.io/blob/master/PictureHosting/IMG_6951_edited.jpg" alt="Girl in a jacket" style="width:250px;height:300px;">
+
 Here you can see my notes on differnt topics and hope you can be benifited from that.
 
 ## [Click Here to go to My Note book](https://definecoder.github.io)

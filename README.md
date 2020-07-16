@@ -1,7 +1,5 @@
 # Welcome to Mehraj's Notes
 
-![My Photo](https://codermehraj.github.io/PictureHosting/IMG_6951_edited%20(2).jpg)<br>
-
 Here you can see my notes on differnt topics and hope you can be benifited from that.
 
 ## [Click Here to go to My Note book portal](https://definecoder.github.io)
@@ -18,3 +16,6 @@ Here you can see my notes on differnt topics and hope you can be benifited from 
 You can reach me at `codermehraj@gmail.com`
 
 > Happy Coding :D 
+
+## My photo
+![My Photo](https://codermehraj.github.io/PictureHosting/IMG_6951_edited%20(2).jpg)<br>

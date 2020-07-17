@@ -92,5 +92,47 @@ void sieve(int n)
 }
 ```
 ## 4.2 ~ Memory Efficient Bitwise Sive (Reccomanded)
+This version of sieve is very memeory efficient as well as it is also faster than the normal one. So I reccomand to use this version of the sieve. This will use each bit to store the information about marking primes. Here is the code
+```cpp
+// Bitwise Sieve Implementation
+#define MAX 100000000
+int marked[MAX / 64 + 2]; // each index will have 64 bits for marking
+vector<int> prime;        // used to store the primes
+
+#define on(x) (marked[x / 64] & (1 << ((x % 64) / 2)))
+// To check if x number's bit is 1 or 0
+#define mark(x) marked[x / 64] |= (1 << ((x % 64) / 2))
+// to mark x number's bit
+
+// Function to check if a certain number is prime or not
+bool isPrime(int num)
+{
+    return num > 1 && (num == 2 || ((num & 1) && !on(num)));
+}
+
+// The main sieve function
+void sieve(int n)
+{
+    // we will avoid storing the even numbers
+    // so we will go from 3 to sqrt(N)
+    int lim = sqrt(n);
+    for (int i = 3; i <= lim; i += 2)
+    {
+        if (!on(i))
+        {
+            for (int j = i * i; j <= n; j += i + i)
+            {
+                mark(j);
+            }
+        }
+    }
+    prime.push_back(2);
+    for (int i = 3; i < n; i += 2)
+    {
+        if (isPrime(i))
+            prime.push_back(i);
+    }
+}
+```
 ## 4.3 ~ Segmentive sieve
 ## 4.4 ~ Linier Sieve

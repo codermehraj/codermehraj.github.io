@@ -184,6 +184,24 @@ vector<bool> segmentedSieve(long long L, long long R)
 ## 4.4 ~ Linier Sieve
 To know about linier sieve [click here](https://codeforces.com/blog/entry/54090). I am just adding the function here :
 ```cpp
+#define MAXN 100000000
+
+vector <int> prime;
+bool is_composite[MAXN];
+
+void sieve (int n) {
+	fill (is_composite, is_composite + n, 0);
+	for (int i = 2; i < n; ++i) {
+		if (!is_composite[i]) prime.push_back (i);
+		for (int j = 0; j < prime.size () && i * prime[j] < n; ++j) {
+			is_composite[i * prime[j]] = 1;
+			if (i % prime[j] == 0) break;
+		}
+	}
+}
+```
+# 5 >> List of Divisors
+```cpp
 // Function to get the divisors
 vector<int> getDivisors(int n)
 {

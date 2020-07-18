@@ -135,4 +135,50 @@ void sieve(int n)
 }
 ```
 ## 4.3 ~ Segmentive sieve
+Sometimes we need to get primes which are more than `10^8` and that can not be done faster even using efficient bitwise sieve. If we need to get primes on a `specific range [L:R]`, such that `R-L < 10^8` and `R < 10^16` then we can use the _**segmentive sieve**_. See the code :
+```cpp
+// Returns list of primes in the range [L:R]
+vector<bool> segmentedSieve(long long L, long long R)
+{
+    // generate all primes up to sqrt(R)
+
+    long long lim = sqrt(R) + 2, i, j, x;
+    vector<bool> mark(lim + 1, 0);
+    vector<long long> primes;
+
+    primes.push_back(2);
+
+    for (i = 3; i <= lim; i += 2)
+        if (mark[i] == 0)
+        {
+            primes.push_back(i);
+
+            for (j = i * i; j <= lim; j = j + (i + i))
+            {
+                mark[j] = 1;
+            }
+        }
+
+    // sieve in the range [L:R] using primes upto Root(R)a
+    vector<bool> isPrime(R - L + 1, 1);
+    for (long long i : primes)
+        for (long long j = max(i * i, (L + i - 1) / i * i); j <= R; j += i)
+            isPrime[j - L] = 0;
+    if (L == 1)
+        isPrime[0] = 0;
+    
+    // Prinitng the primes
+    if (1)
+    {
+        x = L;
+        for (auto lol : isPrime)
+        {
+            if (lol)
+                cout << x << endl;
+            x++;
+        }
+    }
+    return isPrime;
+}
+```
 ## 4.4 ~ Linier Sieve

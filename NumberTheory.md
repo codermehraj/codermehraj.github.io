@@ -200,3 +200,33 @@ void sieve (int n) {
 	}
 }
 ```
+# 5 >> Divisor List :
+Very often you need to find the list of divisors for a given **`n`** Lets see the simple `root(n)` code for that :
+``cpp
+// Function to get the divisors 
+vector<int> getDivisors(int n) 
+{ 
+    // up to root n
+    int lim = sqrt(n);
+    vector < int > divisors;
+
+    for (int i=1; i<=lim; i++) 
+    { 
+        if (n%i == 0) 
+        { 
+            // divisors are equal, take one
+            if (n/i == i) 
+                divisors.push_back(i);
+
+  			// Otherwise take both 
+            else 
+            {
+            	divisors.push_back(i);
+            	divisors.push_back(n/i);
+            }
+        } 
+    }
+    sort(divisors.begin(), divisors.end());
+    return divisors; 
+}
+```

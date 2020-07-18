@@ -184,49 +184,30 @@ vector<bool> segmentedSieve(long long L, long long R)
 ## 4.4 ~ Linier Sieve
 To know about linier sieve [click here](https://codeforces.com/blog/entry/54090). I am just adding the function here :
 ```cpp
-#define MAXN 100000000
-
-vector <int> prime;
-bool is_composite[MAXN];
-
-void sieve (int n) {
-	fill (is_composite, is_composite + n, 0);
-	for (int i = 2; i < n; ++i) {
-		if (!is_composite[i]) prime.push_back (i);
-		for (int j = 0; j < prime.size () && i * prime[j] < n; ++j) {
-			is_composite[i * prime[j]] = 1;
-			if (i % prime[j] == 0) break;
-		}
-	}
-}
-```
-# 5 >> Divisor List :
-Very often you need to find the list of divisors for a given **`n`** Lets see the simple `root(n)` code for that :
-``cpp
-// Function to get the divisors 
-vector<int> getDivisors(int n) 
-{ 
+// Function to get the divisors
+vector<int> getDivisors(int n)
+{
     // up to root n
     int lim = sqrt(n);
-    vector < int > divisors;
+    vector<int> divisors;
 
-    for (int i=1; i<=lim; i++) 
-    { 
-        if (n%i == 0) 
-        { 
+    for (int i = 1; i <= lim; i++)
+    {
+        if (n % i == 0)
+        {
             // divisors are equal, take one
-            if (n/i == i) 
+            if (n / i == i)
                 divisors.push_back(i);
 
-  			// Otherwise take both 
-            else 
+            // Otherwise take both
+            else
             {
-            	divisors.push_back(i);
-            	divisors.push_back(n/i);
+                divisors.push_back(i);
+                divisors.push_back(n / i);
             }
-        } 
+        }
     }
     sort(divisors.begin(), divisors.end());
-    return divisors; 
+    return divisors;
 }
 ```

@@ -201,6 +201,7 @@ void sieve (int n) {
 }
 ```
 # 5 >> List of Divisors
+Maybe you will need this... Don't know why! btw, Code : 
 ```cpp
 // Function to get the divisors
 vector<int> getDivisors(int n)
@@ -228,4 +229,9 @@ vector<int> getDivisors(int n)
     sort(divisors.begin(), divisors.end());
     return divisors;
 }
+```
+# 6 >> PPF ~ Prime Factorization
+This one is very much important for many many things as it is an unique representation of the numbers and it has a ton of applications too... Jump into the code :
+```cpp
+PPF code :/
 ```

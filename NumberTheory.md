@@ -233,5 +233,59 @@ vector<int> getDivisors(int n)
 # 6 >> PPF ~ Prime Factorization
 This one is very much important for many many things as it is an unique representation of the numbers and it has a ton of applications too... Jump into the code :
 ```cpp
-PPF code :/
+// Bitwise Sieve Implementation
+#define MAX 100000000
+int marked[MAX / 64 + 2]; // each index will have 64 bits for marking
+vector<int> prime;        // used to store the primes
+
+#define on(x) (marked[x / 64] & (1 << ((x % 64) / 2)))
+// To check if x number's bit is 1 or 0
+#define mark(x) marked[x / 64] |= (1 << ((x % 64) / 2))
+// to mark x number's bit
+
+// Function to check if a certain number is prime or not
+bool isPrime(int num)
+{
+    return num > 1 && (num == 2 || ((num & 1) && !on(num)));
+}
+
+// The main sieve function
+void sieve(int n)
+{
+    // we will avoid storing the even numbers
+    // so we will go from 3 to sqrt(N)
+    int lim = sqrt(n);
+    for (int i = 3; i <= lim; i += 2)
+    {
+        if (!on(i))
+        {
+            for (int j = i * i; j <= n; j += i + i)
+            {
+                mark(j);
+            }
+        }
+    }
+    prime.push_back(2);
+    for (int i = 3; i < n; i += 2)
+    {
+        if (isPrime(i))
+            prime.push_back(i);
+    }
+}
+
+// returns the prime factiorization of a number n
+map < int , int > PrimeFactorize(long long n){
+
+    map < int , int > ppf;
+    int lim = sqrt(n);
+    sieve(lim + 2);
+    for(auto num : prime){
+        while(n % num == 0){
+            n /= num;
+            ppf[num]++;
+        }
+    }
+    if(n > 1) ppf[n]++;
+    return ppf;
+}
 ```

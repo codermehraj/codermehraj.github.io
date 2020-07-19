@@ -289,3 +289,17 @@ map < int , int > PrimeFactorize(long long n){
     return ppf;
 }
 ```
+
+# 7 >> NOD ~ Number Of Divisors
+There is a formula of calculating NOD(x) using the PPF. Lets see that implementation :
+```cpp
+// Use the PPF function from above
+// Function to get the number of divisors
+int NOD(long long n){
+    int ans = 1;
+    map < int , int > ppf ;
+    ppf = PrimeFactorize(n);
+    for(auto PRIME : ppf) ans *= (PRIME.second + 1);
+    return ans;
+}
+```

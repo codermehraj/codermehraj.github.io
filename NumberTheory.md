@@ -303,3 +303,22 @@ int NOD(long long n){
     return ans;
 }
 ```
+
+# 8 >> SOD ~ Sum Of Divisors
+There is a formula of calculating SOD(x) using the PPF. Lets see that implementation :
+```cpp
+// Use the PPF function from above
+// Function to get the sum of divisors
+int SOD(long long n){
+    long long temp,  ans = 1;
+    map < int , int > ppf ;
+    ppf = PrimeFactorize(n);
+    for(auto PRIME : ppf) {
+        temp = 0;
+        for(int i = 0 ; i <= PRIME.second ; i++) temp += pow(PRIME.first,i);
+        ans *= temp;
+    }
+    return ans;
+}
+```
+

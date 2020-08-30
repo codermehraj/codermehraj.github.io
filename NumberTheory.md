@@ -322,3 +322,31 @@ int SOD(long long n){
 }
 ```
 
+# 9 >> Extended GCD using Extended Eucledian Algorithm
+We produce use Bezout's Identity for any integer (a,b) where ax+by = gcd(a,b); here we need to calculate (x,y). See this link to see the algorithom's explanation. For now lets jump into the code :
+```cpp
+// Function to calculate egcd of (a,b) as Bezout's Identity (x,y)
+int egcd(int a, int b, int &x , int &y){
+	
+	int r, q, r1=min(a,b), r2=max(a,b), x2=(a>b), x1=(b>a), y1=(!(x1)), y2=(!(x2));
+	
+	//cout << x2 << " " << y2 << endl;
+	//cout << x1 << " " << y1 << endl;
+
+	while(1){
+		q = r2/r1;
+		r = r2 - (q * r1);
+		if(r == 0) break;
+		x = x2 - (q * x1);
+		y = y2 - (q * y1);
+		r2 = r1; r1 = r;
+		x2 = x1; x1 = x;
+		y2 = y1; y1 = y;
+		//cout << x << " " << y << endl;
+	}
+
+	cout << a << "*(" << x << ") + " << b << "*(" << y << ") = " << r1 << endl;
+	
+	return r1;
+}
+```

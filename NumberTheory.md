@@ -345,7 +345,7 @@ int egcd(int a, int b, int &x , int &y){
 		//cout << x << " " << y << endl;
 	}
 
-	cout << a << "*(" << x << ") + " << b << "*(" << y << ") = " << r1 << endl;
+	//cout << a << "*(" << x << ") + " << b << "*(" << y << ") = " << r1 << endl;
 	
 	return r1;
 }

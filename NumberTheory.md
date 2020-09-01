@@ -321,7 +321,26 @@ int SOD(long long n){
     return ans;
 }
 ```
-
+Function of SOD without PPF function is given below :
+```cpp
+// Use the sieve function from above
+// Function to get the sum of divisors
+int SOD(long long n){
+    //sieve(MAX);
+    int temp,  ans = 1, i;
+    for(auto num : Prime){
+        if(num > n) break;
+        i = temp = 1;
+        while(n % num == 0){
+            n /= num;
+            temp += pow(num,i++);
+        }
+        ans *= temp;
+    }
+    if(n > 1) ans *= (1+n);
+    return ans;
+}
+```
 # 9 >> Extended GCD using Extended Eucledian Algorithm
 We produce use Bezout's Identity for any integer (a,b) where ax+by = gcd(a,b); here we need to calculate (x,y). See this link to see the algorithom's explanation. For now lets jump into the code :
 ```cpp
@@ -330,9 +349,6 @@ int egcd(int a, int b, int &x , int &y){
 	
 	int r, q, r1=min(a,b), r2=max(a,b), x2=(a>b), x1=(b>a), y1=(!(x1)), y2=(!(x2));
 	
-	//cout << x2 << " " << y2 << endl;
-	//cout << x1 << " " << y1 << endl;
-
 	while(1){
 		q = r2/r1;
 		r = r2 - (q * r1);
@@ -342,7 +358,6 @@ int egcd(int a, int b, int &x , int &y){
 		r2 = r1; r1 = r;
 		x2 = x1; x1 = x;
 		y2 = y1; y1 = y;
-		//cout << x << " " << y << endl;
 	}
 
 	//cout << a << "*(" << x << ") + " << b << "*(" << y << ") = " << r1 << endl;

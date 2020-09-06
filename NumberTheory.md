@@ -365,3 +365,31 @@ int egcd(int a, int b, int &x , int &y){
 	return r1;
 }
 ```
+
+# Multiplicative Mod [ (a*b)%m ] :
+This function can calculate (a*b)%m by ignoring overflow : 
+```cpp
+// To compute (a * b) % MOD
+long long int mulmod(long long int a, long long int b,
+                     long long int mod)
+{
+    long long int res = 0; // Initialize result
+    a = a % mod;
+    while (b > 0)
+    {
+
+        // If b is odd, add 'a' to result
+        if (b % 2 == 1)
+            res = (res + a) % mod;
+
+        // Multiply 'a' with 2
+        a = (a * 2) % mod;
+
+        // Divide b by 2
+        b /= 2;
+    }
+
+    // Return result
+    return res % mod;
+}
+```

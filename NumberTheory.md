@@ -366,7 +366,7 @@ int egcd(int a, int b, int &x , int &y){
 }
 ```
 
-# Multiplicative Mod [ (a*b)%m ] :
+# 10 >> Multiplicative Mod [ (a*b)%m ] :
 This function can calculate (a*b)%m by ignoring overflow : 
 ```cpp
 // To compute (a * b) % MOD

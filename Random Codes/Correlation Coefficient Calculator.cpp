@@ -81,5 +81,7 @@ int main(){
 
     cov = getCOV();
     cout << "\n\n\tCOV(X,Y) = " << cov << endl;
+    
+    getchar(); getchar();
     return 0;
 }

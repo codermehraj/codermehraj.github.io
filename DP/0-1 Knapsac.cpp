@@ -21,18 +21,19 @@ int main() {
 	}
 
 	// making table
+	cout << "\nKnapsac table : \n";
 	for(int i=0;i<=n;i++){
 		for(int j=0;j<=W;j++){
 			if(i==0 || j==0) napsac[i][j] = 0;
 			else if(j >= ojon[i-1]) 
 				napsac[i][j] = max(napsac[i-1][j], daam[i-1]+napsac[i-1][j-ojon[i-1]]);
 			else napsac[i][j] = napsac[i-1][j];
-			//cout << napsac[i][j] << " ";
+			cout << napsac[i][j] << " ";
 		}
-		//cout << endl;
+		cout << endl;
 	}
 
-	cout << "Maximum price = " << napsac[n][W] << endl;
+	cout << "\nMaximum price = " << napsac[n][W] << endl;
 
 	stack < pair < int , int > > items;
 	// ojon, price
@@ -47,7 +48,7 @@ int main() {
 		}
 	}
 
-	cout << "Items taken : " << items.size() << "\n";
+	cout << "\nItems taken : " << items.size() << "\n";
 	while(!items.empty()){
 		cout << items.top().first << " kg ~ " << items.top().second << " taka\n";
 		items.pop();

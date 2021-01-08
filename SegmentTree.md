@@ -4,9 +4,8 @@ Here I will add my codes based on segment tree.
 # 1 ~ Sum Segment Tree
 This structure will create segment tree and update values and return sum of ranges as a result of queries. There is also a print function which will print the generated Tree's condition in any stage (level by level sapareted by new line). <br>
 
-**STRUCTURE CODE :**
+**SUM SEGMENT TREE's STRUCTURE CODE :**
 ```cpp
-
 // 1 indexed segment tree
 struct SumSegTree
 {
@@ -128,5 +127,51 @@ struct SumSegTree
         return getsum(1, 1, mainArSz, left, right);
     }
 };
+```
+Now after adding the structure lets see how to use this from main function. <br>
+**USE FROM THE MAIN FUNCTION :**
+```cpp
+int main()
+{
+    // n = size of the array
+    // q = number of queries
+    int n, q, Qtype;
 
+    cin >> n >> q;
+    long long ar[n];
+    for(int i=0;i<n;i++) cin >> ar[i];
+
+    // initiating the segment tree
+    SumSegTree sTree(ar,n);
+    sTree.printTree();
+
+    // taking queries of two types
+    while(q--){
+
+        cin >> Qtype;
+
+        if(Qtype == 1){
+            // 1 i v (update query)
+            // i = index of the element (indexed from 0)
+            // v = value that will be replaced
+            int i; long long v;
+            cin >> i >> v;
+
+            // it will update tree by ar[i] = v
+            sTree.update(i+1, v); // making 1 based index
+        }
+        else if(Qtype == 2){
+            // 2 l r (sum query)
+            // l = start index (indexed from 0)
+            // r = end index
+            int l, r;
+            cin >> l >> r;
+
+            // it will return sum [l,r) ~ 0 indexed
+            cout << sTree.sumQuery(l+1, r) << endl; // making 1 based index
+        }
+    }
+
+    return 0;
+}
 ```

@@ -6,6 +6,7 @@ Here you can see my notes on differnt topics and hope you can be benifited from 
 
 ## Here are some of my personal notes
 - [Number Theory](https://codermehraj.github.io/NumberTheory)
+- [Segment Tree](https://codermehraj.github.io/SegmentTree)
 
 ## Here are some repositories from me :
 - [Banking Management App in C++](https://github.com/codermehraj/Banking-Management-App)

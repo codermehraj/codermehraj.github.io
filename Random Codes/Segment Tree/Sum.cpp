@@ -12,7 +12,8 @@ struct SumSegTree
     void printTree(){
         
         long long ln = 1, cnt = 1;
-        // ln = for checking wether 
+        // ln = for checking wether we have comepleted a level or not
+        // cnt = for getting the number of nodes in next level
 
         cout << "Printing Segment Tree : \n";
 

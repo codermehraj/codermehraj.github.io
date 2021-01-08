@@ -3,6 +3,9 @@ Here I will add my codes based on segment tree.
 
 # 1 ~ Sum Segment Tree
 This structure will create segment tree and update values and return sum of ranges as a result of queries. There is also a print function which will print the generated Tree's condition in any stage (level by level sapareted by new line). <br>
+So, Here we will see two types of operation:
+- `UPDATE i v` ~ updares `i`th index by `v` and also updates the tree accordingly
+- `GETSUM L R` ~ returns sum from range `[l,r)`
 
 **SUM SEGMENT TREE's STRUCTURE CODE :**
 ```cpp
@@ -16,7 +19,8 @@ struct SumSegTree
     void printTree(){
         
         long long ln = 1, cnt = 1;
-        // ln = for checking wether 
+        // ln = for checking wether we have comepleted a level or not
+        // cnt = for getting the number of nodes in next level
 
         cout << "Printing Segment Tree : \n";
 

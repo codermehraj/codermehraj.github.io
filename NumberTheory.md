@@ -393,3 +393,27 @@ long long int mulmod(long long int a, long long int b,
     return res % mod;
 }
 ```
+
+# 11 >> Count trailing zeroes in factorial of a number:
+
+Trailing 0s in n! = Count of 5s in prime factors of n!
+                  = floor(n/5) + floor(n/25) + floor(n/125) + ....
+
+```cpp
+int findTrailingZeros(int n)
+{
+    if (n < 0) // Negative Number Edge Case
+        return -1;
+ 
+    // Initialize result
+    int count = 0;
+ 
+    // Keep dividing n by powers of
+    // 5 and update count
+    for (int i = 5; n / i >= 1; i *= 5)
+        count += n / i;
+ 
+    return count;
+}
+```
+

@@ -416,7 +416,8 @@ int findTrailingZeros(int n)
     return count;
 }
 ```
-# 11 >> Calculate phi of n:
+# 12 >> Calculate phi of n:
+
 
 ```cpp
 long long phi(long long n) {

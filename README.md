@@ -18,5 +18,4 @@ You can reach me at `codermehraj@gmail.com`
 
 > Happy Coding :D 
 
-## My photo
-![My Photo](https://codermehraj.github.io/PictureHosting/IMG_E1179.JPG)<br>
+
